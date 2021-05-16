@@ -1,0 +1,24 @@
+.selector-panel {
+  display: flex;
+  flex-wrap: wrap;
+  /* width: 60%; */
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 2em;
+}
+@media only screen and (max-width: 768px) {
+  .selector-panel {
+    width: 100%;
+  }
+}
+.genre-buttons,
+.age-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.selector-panel button {
+  margin: 0.5em;
+}
