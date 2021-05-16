@@ -16,17 +16,29 @@ export default class GenrePanel extends Component {
   }
 
   handleButtonClick = (e) => {
+    let temp;
     if (e.target.className === "active") {
       e.target.className = "inactive";
+      //remove this val from activeButton state variable as well
+      temp = this.state.activeButtons.filter((el) => el !== e.target.innerHTML);
     } else {
       e.target.className = "active";
+      //add the current value to activeButton state varibale
+      temp = [...this.state.activeButtons, e.target.innerHTML];
+
+      //selecting an particular value should disselect the generic value
+      if (genre.indexOf(e.target.innerHTML) >= 0) {
+        //remove All if present in activeButtons
+        temp = temp.filter((el) => el !== "All");
+      } else if (age.indexOf(e.target.innerHTML) >= 0) {
+        //remove Anyone if present in activeButtons
+        temp = temp.filter((el) => el !== "Anyone");
+      }
     }
-    if (genre.indexOf(e.target.innerText) > 0) {
-      // console.log("in genre");
-      document.getElementById("all-genres").className = "inactive";
-    } else if (age.indexOf(e.target.innerText) > 0) {
-      document.getElementById("all-ages").className = "inactive";
-    }
+    //update state
+    this.setState({
+      activeButtons: temp,
+    });
   };
   handleMenuClick = (e) => {
     if (this.state.sortBy === "Views Count") {
@@ -35,7 +47,9 @@ export default class GenrePanel extends Component {
       this.setState({ sortBy: "Views Count" });
     }
   };
-
+  // componentDidUpdate() {
+  //   console.log(this.state.activeButtons);
+  // }
   render() {
     const menu = (
       <Menu onClick={this.handleMenuClick}>
@@ -51,38 +65,32 @@ export default class GenrePanel extends Component {
       <div className="selector-panel">
         <Col sm={{ marginRight: "5px" }}>
           <div className="genre-buttons">
-            {genre.map((el, i) =>
-              i === 0 ? (
-                <button
-                  id="all-genres"
-                  className="active"
-                  onClick={this.handleButtonClick}
-                >
-                  {el}
-                </button>
-              ) : (
-                <button className="inactive" onClick={this.handleButtonClick}>
-                  {el}
-                </button>
-              )
-            )}
+            {genre.map((el, i) => (
+              <button
+                className={
+                  this.state.activeButtons.indexOf(el) >= 0
+                    ? "active"
+                    : "inactive"
+                }
+                onClick={this.handleButtonClick}
+              >
+                {el}
+              </button>
+            ))}
           </div>
           <div className="age-filter">
-            {age.map((el, i) =>
-              i === 0 ? (
-                <button
-                  id="all-ages"
-                  className="active"
-                  onClick={this.handleButtonClick}
-                >
-                  {el}
-                </button>
-              ) : (
-                <button className="inactive" onClick={this.handleButtonClick}>
-                  {el}
-                </button>
-              )
-            )}
+            {age.map((el, i) => (
+              <button
+                className={
+                  this.state.activeButtons.indexOf(el) >= 0
+                    ? "active"
+                    : "inactive"
+                }
+                onClick={this.handleButtonClick}
+              >
+                {el}
+              </button>
+            ))}
           </div>
         </Col>
         <Col style={{ marginLeft: "40px", justifySelf: "flex-end" }}>
