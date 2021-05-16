@@ -1,0 +1,17 @@
+.video-tile {
+  /* height: 300px; */
+  display: flex;
+  width: auto;
+  margin: 0.5em;
+  align-self: stretch;
+}
+.ant-card-body {
+  padding: 0 !important;
+  background: #181818;
+  color: white !important;
+}
+.card-caption {
+  /* background-color: grey; */
+  padding: 0;
+  color: white !important;
+}
