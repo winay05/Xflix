@@ -1,11 +1,36 @@
 import { DislikeOutlined, EyeOutlined, LikeOutlined } from "@ant-design/icons";
-import { Button, Col, Row } from "antd";
+import { Button, Col, message, Row } from "antd";
 import React from "react";
 import Iframe from "react-iframe";
 import { get_time_diff } from "./../../util/util";
-import Spinner from "../../util/Spinner";
 import "./Preview.css";
+import { backendURL } from "./../../ipConfig.json";
 
+const performAPICall = async (vote, id) => {
+  let url = `${backendURL}/v1/videos/${id}/votes`;
+
+  try {
+    await fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        vote: vote,
+        change: "increase",
+      }),
+    });
+  } catch (e) {
+    message.error(
+      "Could not update votes. Check that the internet connection and try again."
+    );
+  }
+};
+
+async function handleVote(vote, id) {
+  await performAPICall(vote, id);
+}
 export default function Preview(props) {
   console.log(props.video);
   let url;
@@ -38,10 +63,22 @@ export default function Preview(props) {
               </p>
             </Col>
             <Col className="reaction">
-              <Button size="large" icon={<LikeOutlined />} shape="round">
+              <Button
+                size="large"
+                icon={<LikeOutlined />}
+                shape="round"
+                onClick={async () => handleVote("upVote", props.video._id)}
+              >
                 like
               </Button>
-              <Button size="large" icon={<DislikeOutlined />} shape="round">
+              <Button
+                size="large"
+                icon={<DislikeOutlined />}
+                shape="round"
+                onClick={async () => {
+                  handleVote("downVote", props.video._id);
+                }}
+              >
                 dislike
               </Button>
             </Col>

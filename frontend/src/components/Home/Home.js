@@ -94,7 +94,8 @@ class Home extends Component {
   };
   handleSearch(text) {
     // this.setState({ searchText: text });
-    // console.log(text);
+    message.info("Not yet implemented");
+    console.log(text);
   }
 
   validateResponse = (errored, response) => {
@@ -154,7 +155,7 @@ class Home extends Component {
     }
 
     url += queryString;
-    console.log(url);
+    // console.log(url);
     try {
       response = (await (await fetch(url)).json()).videos;
     } catch (e) {
