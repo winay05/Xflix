@@ -1,0 +1,33 @@
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  background: #181818;
+  margin-bottom: 50px;
+}
+.preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 70vh;
+  /* height: auto; */
+  border-radius: 8px;
+  width: 67vw;
+}
+.information {
+  display: flex;
+  margin-top: 1em;
+  width: 70%;
+  justify-content: space-between;
+  align-items: center;
+}
+.reaction button {
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  padding: 0.25em;
+}

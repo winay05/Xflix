@@ -4,7 +4,7 @@
   padding: 1em;
 }
 .header-container {
-  background: grey;
+  background: #444;
 }
 .logo {
   padding-right: 0.5em;
@@ -16,12 +16,12 @@
 }
 
 .input-dark {
-  background: #444;
+  background: #222;
   color: white;
   border: none;
 }
 
 .btn-dark {
-  background: #666;
+  background: #222;
   border: none;
 }

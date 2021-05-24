@@ -5,7 +5,9 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 1em;
   padding-bottom: 2em;
+  background: #444;
 }
 @media only screen and (max-width: 768px) {
   .selector-panel {
@@ -22,7 +24,7 @@
   margin: 0.5em;
   padding: 0.5em;
   border-radius: 12px;
-  border: 0.5px solid;
+  border: none;
   cursor: pointer;
 }
 .active {
@@ -30,6 +32,6 @@
   color: black;
 }
 .inactive {
-  background: grey;
+  background: #444;
   color: white;
 }
