@@ -3,6 +3,7 @@ import { UploadOutlined, SearchOutlined } from "@ant-design/icons";
 
 import React, { Component } from "react";
 import "./Header.css";
+import UploadModal from "../UploadModal/UploadModal";
 
 export default class Header extends Component {
   // constructor(props) {
@@ -23,7 +24,6 @@ export default class Header extends Component {
               alt="logo"
             ></img>
           </a>
-
           {this.props.history.location.pathname === "/" ? (
             <div className="search-bar">
               <Input placeholder="input search text" className="input-dark" />
@@ -39,9 +39,7 @@ export default class Header extends Component {
 
           {this.props.history.location.pathname === "/" ? (
             <div className="header-action">
-              <Button type="primary" icon={<UploadOutlined />}>
-                Upload
-              </Button>
+              <UploadModal />
             </div>
           ) : (
             ""

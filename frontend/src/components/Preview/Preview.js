@@ -14,7 +14,6 @@ const performAPICall = async (vote, id) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         vote: vote,
@@ -32,7 +31,6 @@ async function handleVote(vote, id) {
   await performAPICall(vote, id);
 }
 export default function Preview(props) {
-  console.log(props.video);
   let url;
   if (props.video) {
     url = `https://www.${props.video.videoLink}`;

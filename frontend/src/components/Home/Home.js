@@ -107,7 +107,9 @@ class Home extends Component {
     }
 
     if (!response || response.length < 1) {
-      message.error(response.message || "No videos found in database");
+      message.error(
+        response ? response.message : '"No videos found in database"'
+      );
       return false;
     }
 
@@ -157,7 +159,9 @@ class Home extends Component {
     url += queryString;
     // console.log(url);
     try {
-      response = (await (await fetch(url)).json()).videos;
+      response = (await (await fetch(url)).json()).data;
+
+      // console.log(response.data);
     } catch (e) {
       errored = true;
     }

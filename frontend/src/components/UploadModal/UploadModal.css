@@ -1,0 +1,42 @@
+.ant-modal-header,
+.ant-modal-body,
+.ant-modal-footer {
+  background: #444;
+  color: white;
+  border-bottom: none;
+  border-top: none;
+}
+.ant-modal-body {
+  padding: 12px 24px;
+}
+.ant-modal-title {
+  color: white;
+}
+.ant-modal-header {
+  padding: 2em;
+  padding-bottom: 0;
+  padding-left: 3.5em;
+}
+
+.ant-modal-footer {
+  display: none;
+}
+.ant-modal label,
+.ant-modal p {
+  color: lightgrey;
+}
+.ant-modal input,
+.ant-modal div {
+  color: white;
+}
+.ant-modal-close-icon {
+  color: white;
+}
+.ant-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ant-modal-content {
+  width: 80%;
+}
