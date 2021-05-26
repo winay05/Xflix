@@ -23,7 +23,6 @@ export default class UploadModal extends Component {
         <Button
           icon={<UploadOutlined />}
           id="upload-btn"
-          className="sort-select"
           size="large"
           shape="round"
           type="primary"
