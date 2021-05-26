@@ -1,7 +1,6 @@
 .selector-panel {
   display: flex;
   flex-wrap: wrap;
-  /* width: 60%; */
   justify-content: center;
   margin-left: auto;
   margin-right: auto;

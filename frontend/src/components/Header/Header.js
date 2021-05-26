@@ -1,17 +1,11 @@
-import { Button, Input, message } from "antd";
-import { UploadOutlined, SearchOutlined } from "@ant-design/icons";
+import { Button, Input } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
 
 import React, { Component } from "react";
 import "./Header.css";
 import UploadModal from "../UploadModal/UploadModal";
 
 export default class Header extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     text: "",
-  //   };
-  // }
   render() {
     return (
       <div className="header-container">

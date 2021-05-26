@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, message, Row } from "antd";
+import { Col, Row } from "antd";
 import VideoTile from "../VideoTile/VideoTile";
 import Spinner from "./../../util/Spinner";
 import "./Dashboard.css";

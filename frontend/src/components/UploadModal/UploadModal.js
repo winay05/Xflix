@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Modal, Button } from "antd";
 import "./UploadModal.css";
 import { UploadOutlined } from "@ant-design/icons";
-// const { Button } = window['MaterialUI'];
 import UploadForm from "./../UploadForm/UploadForm";
 
 export default class UploadModal extends Component {

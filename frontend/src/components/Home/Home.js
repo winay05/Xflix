@@ -65,9 +65,6 @@ class Home extends Component {
       );
     }
   };
-  // handleChange(e) {
-  //   // this.setState({ filterObj: newFilter });
-  // }
   handleDropDown = async (e) => {
     if (this.state.sortBy === "viewCount") {
       this.setState(
@@ -75,7 +72,6 @@ class Home extends Component {
           return { sortBy: "releaseDate" };
         },
         async () => {
-          // console.log(this.state.sortBy);
           await this.getVideos();
         }
       );
@@ -85,15 +81,12 @@ class Home extends Component {
           return { sortBy: "viewCount" };
         },
         async () => {
-          // console.log(this.state.sortBy);
           await this.getVideos();
         }
       );
     }
-    // console.log(this.state.sortBy);
   };
   handleSearch(text) {
-    // this.setState({ searchText: text });
     message.info("Not yet implemented");
     console.log(text);
   }
@@ -135,7 +128,6 @@ class Home extends Component {
       queryString += `sortBy=${this.state.sortBy}`;
     }
     if (this.state.genreFilter.length > 0) {
-      // if(queryString.length<1)
       if (queryString.length < 1) {
         queryString += "?";
       } else {
@@ -153,15 +145,12 @@ class Home extends Component {
       queryString += `contentRating=${encodeURIComponent(
         this.state.ageContentFilter
       )}`;
-      // queryString += `contentRating=${this.state.ageContentFilter}`;
     }
 
     url += queryString;
-    // console.log(url);
+
     try {
       response = (await (await fetch(url)).json()).data;
-
-      // console.log(response.data);
     } catch (e) {
       errored = true;
     }
@@ -170,7 +159,6 @@ class Home extends Component {
     });
 
     if (this.validateResponse(errored, response)) {
-      // console.log(response);
       return response;
     }
   };
@@ -187,25 +175,15 @@ class Home extends Component {
     //perform api call here
     await this.getVideos();
   }
-  async componentDidUpdate() {
-    // console.log(this.state.videos);
-    // await this.getVideos();
-    // console.log(this.props.history);
-  }
 
   render() {
     return (
       <div className="container">
         <Header
-          // changeHandler={this.handleChange}
           history={this.props.history}
           searchHandler={this.handleSearch}
         />
-        <Dashboard
-          loading={this.state.loading}
-          videos={this.state.videos}
-          // changeHandler={this.handleChange}
-        >
+        <Dashboard loading={this.state.loading} videos={this.state.videos}>
           {this.props.history.location.pathname === "/" ? (
             <GenrePanel
               handleDropDown={this.handleDropDown}

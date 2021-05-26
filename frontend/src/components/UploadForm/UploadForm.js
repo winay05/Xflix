@@ -13,7 +13,6 @@ import {
 } from "@material-ui/core";
 import { message } from "antd";
 import { backendURL } from "./../../ipConfig.json";
-import Spinner from "./../../util/Spinner";
 
 const allGenre = ["All", "Education", "Sports", "Comedy", "Lifestyle"];
 const allAge = ["Anyone", "7+", "12+", "16+", "18+"];
@@ -78,7 +77,6 @@ const performAPICall = async (bodyObj) => {
   }
 
   if (validateResponse(errored, response)) {
-    // console.log(response);
     return true;
   }
 };
@@ -125,23 +123,12 @@ export default function UploadForm(props) {
   const divRef = React.useRef(null);
 
   useLayoutEffect(() => {
-    // console.log(divRef.current);
-    // divRef.current.scrollIntoView({
-    //   behavior: "smooth",
-    // });
-    // divRef.current.scrollTop = divRef.current.scrollHeight;
     document.getElementById("upload-btn-submit").scrollIntoView();
   }, []);
-  //   browser.execute(function () {
-  //     document.getElementById("upload-btn-submit").scrollIntoView();
-  // }, []);
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        {/* {loading ? (
-          <Spinner />
-        ) : ( */}
         <form className={classes.form} onSubmit={(e) => handleSubmit(e)}>
           <TextField
             variant="outlined"
@@ -260,7 +247,6 @@ export default function UploadForm(props) {
             Cancel
           </Button>
         </form>
-        {/* )} */}
       </div>
     </Container>
   );

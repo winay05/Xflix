@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { get_time_diff } from "../../util/util";
 
 export default function VideoTile(props) {
-  // console.log(props.video.videoLink);
   return (
     <Link className="video-tile-link" to={`/preview/${props.video._id}`}>
       <div className="video-tile">
@@ -23,8 +22,5 @@ export default function VideoTile(props) {
         </Card>
       </div>
     </Link>
-    //<a className="video-tile-link" href={url} rel="noreferrer" target="_blank">
-
-    // </a>
   );
 }

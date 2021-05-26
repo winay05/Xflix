@@ -1,5 +1,4 @@
 .video-tile {
-  /* height: 300px; */
   display: flex;
   width: auto;
   margin: 0.5em;
@@ -11,8 +10,6 @@
   color: white !important;
 }
 .card-caption {
-  /* background-color: grey; */
-
   padding: 0;
   color: white !important;
 }
