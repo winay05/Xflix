@@ -19,6 +19,12 @@
   border-radius: 8px;
   width: 67vw;
 }
+@media only screen and (max-width: 1024px) {
+  .preview {
+    height: 40vh;
+    width: 90vw;
+  }
+}
 .information {
   display: flex;
   margin-top: 1em;

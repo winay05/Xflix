@@ -87,13 +87,10 @@ class Home extends Component {
   };
   handleSearch = (text) => {
     console.log("inside search handler");
-    this.setState({searchText: text}, async () => {
-          await this.getVideos();
-        });
+    this.setState({ searchText: text }, async () => {
+      await this.getVideos();
+    });
   };
-  
-  
-
 
   validateResponse = (errored, response) => {
     if (errored) {
@@ -122,8 +119,6 @@ class Home extends Component {
 
     let url = `${backendURL}/v1/videos`;
     let queryString = "";
-    
-    
 
     if (this.state.sortBy.length > 0) {
       if (queryString.length < 1) {
@@ -194,12 +189,7 @@ class Home extends Component {
   render() {
     return (
       <div className="container">
-        <Header
-          history={this.props.history}
-          onSearch={this.handleSearch}
-          
-          
-        />
+        <Header history={this.props.history} onSearch={this.handleSearch} />
         <Dashboard loading={this.state.loading} videos={this.state.videos}>
           {this.props.history.location.pathname === "/" ? (
             <GenrePanel

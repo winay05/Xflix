@@ -16,7 +16,13 @@ export default class Dashboard extends Component {
             <Row>
               {this.props.videos.map((video) => (
                 <Col sm={{ span: 12 }} lg={{ span: 6 }}>
-                  <VideoTile video={video} />
+                  <VideoTile
+                    onClick={window.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    })}
+                    video={video}
+                  />
                 </Col>
               ))}
             </Row>

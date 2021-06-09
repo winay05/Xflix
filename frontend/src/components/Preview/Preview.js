@@ -43,7 +43,7 @@ export default function Preview(props) {
           <Iframe
             className="preview iframe-parent"
             url={url}
-            id="myId"
+            id={props.video._id}
             position="relative"
             allowFullScreen
           />
@@ -62,7 +62,6 @@ export default function Preview(props) {
             </Col>
             <Col className="reaction">
               <Button
-                size="large"
                 icon={<LikeOutlined />}
                 shape="round"
                 onClick={async () => handleVote("upVote", props.video._id)}
@@ -70,7 +69,6 @@ export default function Preview(props) {
                 like
               </Button>
               <Button
-                size="large"
                 icon={<DislikeOutlined />}
                 shape="round"
                 onClick={async () => {

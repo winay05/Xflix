@@ -6,13 +6,12 @@ import "./Header.css";
 import UploadModal from "../UploadModal/UploadModal";
 
 export default class Header extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.debounceTimeout = 0;
     this.state = {
-      text: ''
-    }
-    
+      text: "",
+    };
   }
   debounceSearch = (event) => {
     let txt = event.target.value;
@@ -25,11 +24,6 @@ export default class Header extends Component {
       }.bind(this),
       300
     );
-    // this.debounceTimeout = setTimeout(() => {
-    //   clearTimeout(this.debounceTimeout);
-    //   this.search(txt);
-    //   // console.log(event.target.value);
-    // }, 300);
   };
   render() {
     return (
@@ -45,12 +39,20 @@ export default class Header extends Component {
           </a>
           {this.props.history.location.pathname === "/" ? (
             <div className="search-bar">
-              <Input placeholder="input search text" className="input-dark" value={this.state.searchText} onChange = {e=> {this.setState({text: e.target.value}); this.debounceSearch(e)} } />
+              <Input
+                placeholder="input search text"
+                className="input-dark"
+                value={this.state.searchText}
+                onChange={(e) => {
+                  this.setState({ text: e.target.value });
+                  this.debounceSearch(e);
+                }}
+              />
               <Button
                 type="primary"
                 icon={<SearchOutlined />}
                 className="btn-dark"
-                onClick = {this.props.onSearch}
+                onClick={this.props.onSearch}
               ></Button>
             </div>
           ) : (

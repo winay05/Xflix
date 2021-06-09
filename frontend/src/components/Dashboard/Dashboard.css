@@ -9,3 +9,10 @@
   justify-content: center;
   align-items: stretch;
 }
+a img {
+  transition: 0.2s;
+}
+a img:hover {
+  transform: scale(1.1);
+  filter: brightness(70%);
+}
