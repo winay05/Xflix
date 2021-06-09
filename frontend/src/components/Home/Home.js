@@ -16,7 +16,6 @@ const age = ["Anyone", "7+", "12+", "16+", "18+"];
 class Home extends Component {
   constructor() {
     super();
-
     this.state = {
       loading: false,
       searchText: "",
@@ -86,10 +85,15 @@ class Home extends Component {
       );
     }
   };
-  handleSearch(text) {
-    message.info("Not yet implemented");
-    console.log(text);
-  }
+  handleSearch = (text) => {
+    console.log("inside search handler");
+    this.setState({searchText: text}, async () => {
+          await this.getVideos();
+        });
+  };
+  
+  
+
 
   validateResponse = (errored, response) => {
     if (errored) {
@@ -118,6 +122,8 @@ class Home extends Component {
 
     let url = `${backendURL}/v1/videos`;
     let queryString = "";
+    
+    
 
     if (this.state.sortBy.length > 0) {
       if (queryString.length < 1) {
@@ -126,6 +132,15 @@ class Home extends Component {
         queryString += "&";
       }
       queryString += `sortBy=${this.state.sortBy}`;
+    }
+    if (this.state.searchText.length > 0) {
+      if (queryString.length < 1) {
+        queryString += "?";
+      } else {
+        queryString += "&";
+      }
+      //specific to json server
+      queryString += `q=${this.state.searchText}`;
     }
     if (this.state.genreFilter.length > 0) {
       if (queryString.length < 1) {
@@ -181,7 +196,9 @@ class Home extends Component {
       <div className="container">
         <Header
           history={this.props.history}
-          searchHandler={this.handleSearch}
+          onSearch={this.handleSearch}
+          
+          
         />
         <Dashboard loading={this.state.loading} videos={this.state.videos}>
           {this.props.history.location.pathname === "/" ? (

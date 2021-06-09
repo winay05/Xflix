@@ -123,8 +123,8 @@ export default function UploadForm(props) {
   const divRef = React.useRef(null);
 
   useLayoutEffect(() => {
-    document.getElementById("upload-btn-submit").scrollIntoView();
-  }, []);
+    window && window.scrollTo(0, 0);
+  },[]);
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
